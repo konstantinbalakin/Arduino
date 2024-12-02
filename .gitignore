@@ -3,3 +3,4 @@
 *.hex
 *.log
 .vscode/
+.DS_Store
