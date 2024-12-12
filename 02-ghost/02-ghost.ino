@@ -1,13 +1,19 @@
+constexpr int LED_PIN = 4;
+constexpr int WIRE_PIN = 8;
+
 void setup() {
   // put your setup code here, to run once:
-  pinMode(3, OUTPUT);
-  pinMode(2, OUTPUT);
+  pinMode(LED_PIN, OUTPUT);
 
-  digitalWrite(2,HIGH);
-  digitalWrite(3,HIGH);
+  // pinMode(WIRE_PIN, INPUT);
+  pinMode(WIRE_PIN, INPUT_PULLUP); //использую программную подтяжку резистора к питанию
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
+  bool wireState;
 
+  wireState = !digitalRead(WIRE_PIN); //инвертируем, чтобы в разомкнутом положении диод НЕ горел
+
+  digitalWrite(LED_PIN, wireState);
 }
